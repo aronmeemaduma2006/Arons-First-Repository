@@ -2,7 +2,6 @@ def d_to_s(x,y,z):
     
     x_sec = x * 60 * 60
     y_sec = y * 60
-    ##x + " degrees " + y + " minutes " + z + " seconds"
     return x_sec+y_sec+z
 
 
@@ -42,21 +41,17 @@ def degree_list():
     chars = list(d)
     result = []
     current = ""
-    if " " or "°" not in chars:
+    if " " not in chars:
         return str(d)
-    else:
-        for char in chars:
-            if char != " ":
-                current += char
-            else:
-                if current != "":
-                    result.append(current)
-                    current = ""
-
-    # Add the last number
+    for char in chars:
+        if char != " ":
+            current += char
+        else:
+            if current != "":
+                result.append(current)
+                current = ""
     if current != "":
         result.append(current)
-
     degree = int(result[0])
     minute = int(result[1])
     second = int(result[2])
@@ -69,9 +64,7 @@ def angle_calculator():
     operation = input("insert operteration: ")
     val_1 = degree_list()
     val_2 = degree_list()
-
-    
-    print("Answer: " + str(s_to_d(eval(val_1 + operation + val_2))))
+    print(str(s_to_d(eval(val_1 + operation + val_2))))
     
 
 
@@ -93,7 +86,6 @@ def converter():
 
     if current != "":
         result.append(current)
-        print(result)
     degree = int(result[0])
     minute = int(result[1])
     second = int(result[2])
